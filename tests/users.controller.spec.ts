@@ -54,6 +54,8 @@ describe("UsersController Integration Test", () => {
     await postgresService.sql`
       DELETE FROM users WHERE id = '9c9ea7fb-3718-4d28-b575-393064f3ceb7';
     `;
+
+    jest.clearAllMocks();
   });
 
   it("should topup user balance", async () => {
@@ -68,5 +70,15 @@ describe("UsersController Integration Test", () => {
     const { balance } = response.body.data;
 
     expect(balance).toBe("100");
+  });
+
+  it("should return 400 error", async () => {
+    const response = await request(server.getAppInstance())
+      .post(`/api/users/topup-balance`)
+      .send({
+        amount: "123"
+      });
+    
+    expect(response.status).toBe(400);
   })
 })
