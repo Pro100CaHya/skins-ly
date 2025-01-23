@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c08c30f2-0b3e-42a1-840f-8af98f31fc59",
+		"_postman_id": "a3d35a92-47da-48a5-9855-c947a674352d",
 		"name": "skinsly",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "18361427"
@@ -97,7 +97,20 @@
 							"name": "get-items-01",
 							"request": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/skinport/items",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"skinport",
+										"items"
+									]
+								}
 							},
 							"response": []
 						}
@@ -114,8 +127,29 @@
 						{
 							"name": "create-01",
 							"request": {
-								"method": "GET",
-								"header": []
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"asd\",\n    \"description\": \"asd\",\n    \"price\": 123\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"products"
+									]
+								}
 							},
 							"response": []
 						}
@@ -136,7 +170,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"product_id\": \"6967cded-fcd7-468b-ace5-3d531421f5cf\"\n}",
+									"raw": "{\n    \"productId\": \"6967cded-fcd7-468b-ace5-3d531421f5cf\",\n    \"quantity\": 1\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -171,8 +205,30 @@
 						{
 							"name": "topup-balance",
 							"request": {
-								"method": "GET",
-								"header": []
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"amount\": 100\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/users/topup-balance",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"topup-balance"
+									]
+								}
 							},
 							"response": []
 						}
